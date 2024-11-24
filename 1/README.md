@@ -126,29 +126,29 @@ Zobrazí informace o volné paměti v čitelných jednotkách
 
 Materiály
 ---
-Linux kernel source tree - https://github.com/torvalds/linux
-Linuxový kernel ke stažení - https://www.kernel.org/
-Docs k linuxovému kernelu - https://docs.kernel.org/#
-Shawn Powers – What is Linux … - https://www.youtube.com/watch?v=meAGfhD3_ww
-Open source initiative (open-source definice, licence) - https://opensource.org/
-Shawn Powers – Open source licensing - https://www.youtube.com/watch?v=x_U9Rkc3TmI
-Tanenbaum – Operating Systems Design and Implementation - https://csc-knu.github.io/sys-prog/books/Andrew S. Tanenbaum - Operating Systems. Design and Implementation.pdf
+Linux kernel source tree - https://github.com/torvalds/linux        
+Linuxový kernel ke stažení - https://www.kernel.org/        
+Docs k linuxovému kernelu - https://docs.kernel.org/#       
+Shawn Powers – What is Linux … - https://www.youtube.com/watch?v=meAGfhD3_ww        
+Open source initiative (open-source definice, licence) - https://opensource.org/        
+Shawn Powers – Open source licensing - https://www.youtube.com/watch?v=x_U9Rkc3TmI      
+Tanenbaum – Operating Systems Design and Implementation - https://csc-knu.github.io/sys-prog/books/Andrew S. Tanenbaum - Operating Systems. Design and Implementation.pdf       
 Tannenbaum – Modern Operating Systems:
-https://csc-knu.github.io/sys-prog/books/Andrew S. Tanenbaum - Modern Operating Systems.pdf
-Ing. P. Troller Síťové operační systémy, díl 1 - https://www.youtube.com/watch?v=LDaZ8bij4tw
-Linux systém boot podle Red Hatu - https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/4/html/reference_guide/ch-boot-init-shutdown#s1-boot-process-basics
-Linux systém boot podle SUSE - https://documentation.suse.com/sles/12-SP5/html/SLES-all/cha-boot.html
-Shawn Powers – The Linux Boot Process - https://www.youtube.com/watch?v=esH6GUjVa8Y&t=1206s
-UEFI Specification - https://uefi.org/specs/UEFI/2.10/01_Introduction.html
-David Hand – Linux initramfs for fun, and, uh… - https://www.youtube.com/watch?v=KQjRnuwb7is
-Ing. P. Troller – Síťové operační systémy, díl 2 - https://www.youtube.com/watch?v=YyAZh2bYxXM
-Ing. P. Troller – Síťové operační systémy, díl 6 - https://www.youtube.com/watch?v=nL-GvxoZh6c
-Shawn Powers – Kill Signals - https://www.youtube.com/watch?v=vNajVby4qrM
-Shawn Powers – Finding Process IDs - https://www.youtube.com/watch?v=rK5jLH1cyLk
-Shawn Powers – Why Zombies cant be killed - https://www.youtube.com/watch?v=dl0e6GxO9DI
-Shawn Powers – Linux Package Managers - https://www.youtube.com/watch?v=wR6j4uXVm8U
-SystemD služby podle SUSE - https://documentation.suse.com/smart/systems-management/html/systemd-management/index.html
-Linux služby podle LYM - https://lym.readthedocs.io/en/latest/services.html
-Linux procesy podle LYM - https://lym.readthedocs.io/en/latest/processes.html
-Linux Fundamentals, Paul Cobbaut - https://linux-training.be/linuxfun.pdf
+https://csc-knu.github.io/sys-prog/books/Andrew S. Tanenbaum - Modern Operating Systems.pdf     
+Ing. P. Troller Síťové operační systémy, díl 1 - https://www.youtube.com/watch?v=LDaZ8bij4tw        
+Linux systém boot podle Red Hatu - https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/4/html/reference_guide/ch-boot-init-shutdown#s1-boot-process-basics        
+Linux systém boot podle SUSE - https://documentation.suse.com/sles/12-SP5/html/SLES-all/cha-boot.html       
+Shawn Powers – The Linux Boot Process - https://www.youtube.com/watch?v=esH6GUjVa8Y&t=1206s     
+UEFI Specification - https://uefi.org/specs/UEFI/2.10/01_Introduction.html      
+David Hand – Linux initramfs for fun, and, uh… - https://www.youtube.com/watch?v=KQjRnuwb7is        
+Ing. P. Troller – Síťové operační systémy, díl 2 - https://www.youtube.com/watch?v=YyAZh2bYxXM      
+Ing. P. Troller – Síťové operační systémy, díl 6 - https://www.youtube.com/watch?v=nL-GvxoZh6c      
+Shawn Powers – Kill Signals - https://www.youtube.com/watch?v=vNajVby4qrM       
+Shawn Powers – Finding Process IDs - https://www.youtube.com/watch?v=rK5jLH1cyLk        
+Shawn Powers – Why Zombies cant be killed - https://www.youtube.com/watch?v=dl0e6GxO9DI     
+Shawn Powers – Linux Package Managers - https://www.youtube.com/watch?v=wR6j4uXVm8U     
+SystemD služby podle SUSE - https://documentation.suse.com/smart/systems-management/html/systemd-management/index.html      
+Linux služby podle LYM - https://lym.readthedocs.io/en/latest/services.html     
+Linux procesy podle LYM - https://lym.readthedocs.io/en/latest/processes.html       
+Linux Fundamentals, Paul Cobbaut - https://linux-training.be/linuxfun.pdf       
 	Kapitoly – 1, 2, 3
