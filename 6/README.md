@@ -65,4 +65,6 @@ Princip přenosu informací - https://publi.cz/books/86/02.html
 PowerCert - Network Topologies - https://www.youtube.com/watch?v=zbqrNg4C98U        
 Neso Academy - Error Detection - https://www.youtube.com/watch?v=EMrY-8m8D1E        
 Geeksforgeeks - CSMA/CD - https://www.geeksforgeeks.org/collision-detection-csmacd/     
-Jim Kurose - Error detection and correction - https://www.youtube.com/watch?v=x-rQ3RiI7I0&t=35s
+Jim Kurose - Error detection and correction - https://www.youtube.com/watch?v=x-rQ3RiI7I0&t=35s     
+Jeremy's IT Lab - Interface and Cables - https://www.youtube.com/watch?v=ieTH5lVhNaY        
+Jeremy's IT Lab - OSI Model and TCP/IP Suite - https://www.youtube.com/watch?v=t-ai8JzhHuY
