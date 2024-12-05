@@ -22,7 +22,11 @@ Počítač B se tedy podívá na packet, záměrně říkám packet, protože se
 | -------------- | ----------------  | ----------------- | --------------- | -------------- |
 | **Data**       | AB-32-AA-43-12-3C | 31-65-AD-CA-FE-B1 | 192.168.0.10    | 192.168.0.12   |
 
-Počítač A přijme **ARP Reply** a odešle ping počítači B.        
+Počítač A přijme **ARP Reply** a odešle ping počítači B.    
+Existuje také něco, čemu se říká **ARP table**. ARP tabulka uchovává mapování mezi IP adresou na lokální sítí a její MAC adresou. Proč? Nu, aby nemusel pokaždé probíhat proces ARP protokolu. Mapování v tabulce se samozřejmě po čase mažou, nejsou-li delší dobu použity.    
+
+![ARP Table](arp_table.png)
+
 Pověnujeme se tu ještě chvíli **zapouzdření**. Říkal jsem, že počítač se dívá na packet, ne na rámec. Vskutku. Když počítač přijme ARP Request, odbalí ethernetový header a zbyde mu packet, tedy IP header a data dalších vrstev. Proto se tomu říká zapouzdření, k datům vyšších vrstev se nelze dostat, dokud neodbalíme headery těch nižších. Můžeme to vidět např. při routování, kterém se budeme bavit v dalších otázkách. Když směrovač, router, přijme rámec, odbalí L2 informace, prohlédne si paket, podle routovací tabulky se rozhodne, kam ho pošle dál a znovu ho zabalí do nového ethernetového headeru s příslušnými MAC adresami síťových karet.      
 Důležitý koncept, který pochopit, je, že v rámci síťování, se router chová v podstatě stejně jako klasický počítač. Každý jeho interface má síťovou kartu, stejně jako počítač, a každá jeho síťová karta má také fyzickou adresu.
 
