@@ -8,7 +8,7 @@ Velmi podobná předchozí otázce, podíváme se zde více konkrétně na kabel
 Povídání
 ---
 Začneme tím, co to vlastně ten Ethernet je. Je to rodina protokolů, které se hojně využívají na sítích LAN. Jsou originálně definovány standarty IEEE 802.2 a 802.3. Lze ho rozděli to dvou podvrstev. LLC a MAC. O obou si něco povíme a zkusím vám vysvětlit, jaký je mezi nimi vlastně rozdíl. Jak vypadá Ethernetový rámec a jeho funkce na druhé síťové vrstvě si objasníme v dalších otázkách, teď se zaměříme pouze na jeho definici a spojení s kabely.     
-LLC (Logical Link Control) je podvrstva, která se již nachází na druhé síťové vrstvě. Zkusím ji vysvětlit co nejjednodušeji, aby byl rozdíl mezi LLC a MAC podvrstvou zřejmý, protože jsem na spoustě zdrojů našel různé informace, které si často protiřečily. LLC je implementována softwárově, komunikuje s vrstvami nad ní a dává jim tak možnost komunikovat přes stejné médium. Do Ethernetového headru přidává především typ protokolu, který je v rámci obsažený. Dovoluje tedy různým protokolům existovat v jednu chvíli na stejné síti. Provádí také flow control a podobné kravinky, které nebudeme řešit.      
+LLC (Logical Link Control) je podvrstva, která se již nachází na druhé síťové vrstvě. Zkusím ji vysvětlit co nejjednodušeji, aby byl rozdíl mezi LLC a MAC podvrstvou zřejmý, protože jsem na spoustě zdrojů našel různé informace, které si často protiřečily. LLC je implementována softwárově, komunikuje s vrstvami nad ní a dává jim tak možnost komunikovat přes stejné médium. Dovoluje tedy různým protokolům existovat v jednu chvíli na stejné síti. Provádí také flow control, frame retransmission a podobné kravinky, které nebudeme řešit.      
 MAC podvrstva je implementována hardwarově. Přidává MAC adresy do Ethernetového headru, kalkuluje pro něj také FCS. Řeší CSMA/CD, stará se o využití správného protokolu na základě rychlosti spojení.      
 Ano, existují různé standardy na základě rychlosti připojení. Netřeba se jimi příliš trápit.
 
@@ -49,4 +49,5 @@ LLC Podvrstva podle Cisca - https://www.cisco.com/c/en/us/support/docs/ibm-techn
 PowerCert - Network Connectors explained - https://www.youtube.com/watch?v=ktTtAQIvYkg      
 PowerCert - Ethernet Cables - https://www.youtube.com/watch?v=_NX99ad2FUA       
 Jeremy's IT Lab - Interface and Cables - https://www.youtube.com/watch?v=ieTH5lVhNaY        
-Jeremy's IT Lab - OSI Model and TCP/IP Suite - https://www.youtube.com/watch?v=t-ai8JzhHuY
+Jeremy's IT Lab - OSI Model and TCP/IP Suite - https://www.youtube.com/watch?v=t-ai8JzhHuY      
+Daniels Networking Blog - Ethernet History Deepdive - https://lostintransit.se/2024/08/21/ethernet-history-deepdive-why-do-we-have-different-frame-types/       
