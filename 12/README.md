@@ -44,6 +44,24 @@ Podíváme se teď, jak vypadá IPv6 header. Ten se od našeho čtyřkového zna
 
 ![IPv6 Header](ipv6_header.png)
 
+**Version** obsahuje vždy hodnotu 0110, tedy 6.     
+**Traffic Class** je využíván pro QoS. Žádná z otázek QoS nezmiňuje, takže se jím nebudeme zabývat.         
+**Flow Label** se zabývá jakýmisy toky paketů. Pokud to někoho zajímá, můžete si to dohledat, mi to zde nebudeme řešit.         
+**Payload Length** v sobě má uloženou velikost payloadu, tedy L4 segmentu uloženého v paketu.           
+**Next Header** indikuje, jaký protokol je uzavřený v payloadu, třeba TCP. Funguje analogicky k poli *Protocol* z IPv4 headeru.         
+**Hop Limit** je pouze přejmenovaný *TTL*.      
+**Source a Destination Address** si snad vysvětlovat nemusíme. Nicméně zde musí mít obě pole samozřejmě 128 bitů, protože máme větší adresy.        
+Ukážeme si teď, jak funguje ARP v případě IPv6. IPv6 totiž využívá služeb ICMPv6 k dosáhnutí stejných výsledků, jako v případě ARPu u IPv4.
+
+![NDP](ndp.png)
+
+Na obrázku výše můžete vidět, jak může takový paket vypadat.
+
+![IP Fragmentation](ip_fragmentation.jpeg)
+
+Výše je takový ilustrační obrázek. Podíváme se trochu více do hloubky na to, proč a jak vypadá fragmentace paketu, abychom pochopili, jak funguje u IPv6.
+
+
 Materiály
 ---
 
@@ -51,4 +69,5 @@ Jeremy's IT Lab - IPv6 Part 1 - https://www.youtube.com/watch?v=ZNuXyOXae5U
 Jeremy's IT Lab - IPv6 Part 2 - https://www.youtube.com/watch?v=BrTMMOXFhDU          
 Jeremy's IT Lab - IPv6 Part 3 - https://www.youtube.com/watch?v=rwkHfsWQwy8         
 IPv6 Reference Card - https://www.ripe.net/media/documents/ipv6_reference_card.pdf      
-Cisco - Anycast - https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/ipv6_basic/configuration/xe-3s/ip6b-xe-3s-book/ip6-anycast-add-xe.pdf
+Cisco - Anycast - https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/ipv6_basic/configuration/xe-3s/ip6b-xe-3s-book/ip6-anycast-add-xe.pdf               
+Chris Greer - How IP Fragmentation Works - https://www.youtube.com/watch?v=vdajb14Lcu0
