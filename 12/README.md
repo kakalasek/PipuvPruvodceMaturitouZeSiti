@@ -44,6 +44,30 @@ Podíváme se teď, jak vypadá IPv6 header. Ten se od našeho čtyřkového zna
 
 ![IPv6 Header](ipv6_header.png)
 
+**Version** obsahuje vždy hodnotu 0110, tedy 6.     
+**Traffic Class** je využíván pro QoS. Žádná z otázek QoS nezmiňuje, takže se jím nebudeme zabývat.         
+**Flow Label** se zabývá jakýmisy toky paketů. Pokud to někoho zajímá, můžete si to dohledat, mi to zde nebudeme řešit.         
+**Payload Length** v sobě má uloženou velikost payloadu, tedy L4 segmentu uloženého v paketu.           
+**Next Header** indikuje, jaký protokol je uzavřený v payloadu, třeba TCP. Funguje analogicky k poli *Protocol* z IPv4 headeru.         
+**Hop Limit** je pouze přejmenovaný *TTL*.      
+**Source a Destination Address** si snad vysvětlovat nemusíme. Nicméně zde musí mít obě pole samozřejmě 128 bitů, protože máme větší adresy.        
+Ukážeme si teď, jak funguje ARP v případě IPv6. IPv6 totiž využívá služeb ICMPv6 k dosáhnutí stejných výsledků, jako v případě ARPu u IPv4.
+
+![NDP](ndp.png)
+
+Na obrázku výše můžete vidět, jak může takový paket vypadat. Otázka Nighbor Discovery Protocol (NDP) nezmiňuje, takže ho nebudeme probírat doprodrona. Nicméně je to neoddělitelná část IPv6, takže si ji alespoň zmíníme.      
+NDP je takový velmi handy dandy protokůlek, který nám umožňuje především dvě věci. Dokáže napodobit funkci ARPu a dovede nalézt aktivní směrovače na síti. Využívá ICMPv6, což je protokol pro různé internetové zprávy.        
+NDP *Neighbor Solitication* message funguje analogicky k ARP requestu. Abyste si to lépe pamatovali, solicitation znamená žádost, takže počítač o něco žádá. Jak tento paket vypadá, vidíte na obrázku výše. Využívá již 3 síťové vrstvy, takže IP adresa nemusí být uložena přímo v protokolu. Také nevyužívá broadcast, anžto IPv6 broadcast ani neumí. Používají se tzv. solicited node multicast adresy. Ty vznikají speciálním způsobem, který si nebudeme objasňovat. Můžete je chápat stejně jako klasické multicast adresy, dorazí prostě jen pár vyvoleným zařízením.     
+Také se zde objevuje multicast MAC, o kterém si také povídat nebudeme. Druhý počítač tedy paket přijme a vyšle *Neighbor advertisement*. Ten už vyšle přímo zařízení, ze kterého mu přišlo NS, zprávu, která obsahuje jeho MAC adresu.          
+Dalšími zprávami jsou tedy *Router Solicitation*, *Router Advertisement*. Ty se využívají k nalezení směrovače na síti. Najdou své využití v DHCPv6
+
+![IP Fragmentation](ip_fragmentation.jpeg)
+
+Výše je takový ilustrační obrázek. Podíváme se trochu více do hloubky na to, proč a jak vypadá fragmentace paketu, abychom pochopili, jak funguje u IPv6.           
+Určitě jste již někde viděli napsanou zkratku MTU (Maximum Transmission Unit). Tu udává druhá vrstva a prostě a jednoduše říká, jaká maximální velikost rámce může být přenesena přes dané médium. Typicky to bývá 1500 bytů. Nicméně to nemusí vždy platit, může být i menší. IPv4 má v headeru zabudované pole, které slouží přesně k řešení těchto problémů. Pokud na router přijde paket, který je moc velký, aby mohl vystoupit portem, kterým má být poslán, router tento paket fragmentuje na více částí. Každý takto fragmentovaný paket má stejné identifikační číslo, číslo své pozice v řetězci paketů a flag, zda po něm následuje další fragment, či nikoliv.              
+Jak jste si ale určitě všimly, IPv6 nemá ve svém headeru žádné mechanismy, které by řešily fragmentaci. IPv6 tento problém totiž řeší jinak. Fragmentaci nedeleguje na směrovače, ale nutí zařízení, ať si své pakety fragmetuje samo. Každé zařízení tak musí své pakety fragmentovat inteligentně a optimálně. Pokud přijde na směrovač paket, který je pro port moc velký, prostě ho zahodí a vyšle ICMPv6 zprávu zařízení o tom, že paket byl moc velký. Fragmentace probíhá pomocí jakéhosi přídavného headeru. Pokud to někoho zajímá, může si to vyhledat.
+
+
 Materiály
 ---
 
@@ -51,4 +75,5 @@ Jeremy's IT Lab - IPv6 Part 1 - https://www.youtube.com/watch?v=ZNuXyOXae5U
 Jeremy's IT Lab - IPv6 Part 2 - https://www.youtube.com/watch?v=BrTMMOXFhDU          
 Jeremy's IT Lab - IPv6 Part 3 - https://www.youtube.com/watch?v=rwkHfsWQwy8         
 IPv6 Reference Card - https://www.ripe.net/media/documents/ipv6_reference_card.pdf      
-Cisco - Anycast - https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/ipv6_basic/configuration/xe-3s/ip6b-xe-3s-book/ip6-anycast-add-xe.pdf
+Cisco - Anycast - https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/ipv6_basic/configuration/xe-3s/ip6b-xe-3s-book/ip6-anycast-add-xe.pdf               
+Chris Greer - How IP Fragmentation Works - https://www.youtube.com/watch?v=vdajb14Lcu0
