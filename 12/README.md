@@ -58,8 +58,8 @@ Ukážeme si teď, jak funguje ARP v případě IPv6. IPv6 totiž využívá slu
 Na obrázku výše můžete vidět, jak může takový paket vypadat. Otázka Nighbor Discovery Protocol (NDP) nezmiňuje, takže ho nebudeme probírat doprodrona. Nicméně je to neoddělitelná část IPv6, takže si ji alespoň zmíníme.      
 NDP je takový velmi handy dandy protokůlek, který nám umožňuje především dvě věci. Dokáže napodobit funkci ARPu a dovede nalézt aktivní směrovače na síti. Využívá ICMPv6, což je protokol pro různé internetové zprávy.        
 NDP *Neighbor Solitication* message funguje analogicky k ARP requestu. Abyste si to lépe pamatovali, solicitation znamená žádost, takže počítač o něco žádá. Jak tento paket vypadá, vidíte na obrázku výše. Využívá již 3 síťové vrstvy, takže IP adresa nemusí být uložena přímo v protokolu. Také nevyužívá broadcast, anžto IPv6 broadcast ani neumí. Používají se tzv. solicited node multicast adresy. Ty vznikají speciálním způsobem, který si nebudeme objasňovat. Můžete je chápat stejně jako klasické multicast adresy, dorazí prostě jen pár vyvoleným zařízením.     
-Také se zde objevuje multicast MAC, o kterém si také povídat nebudeme. Druhý počítač tedy paket přijme a vyšle *Neighbor advertisement*. Ten už vyšle přímo zařízení, ze kterého mu přišlo NS, zprávu, která obsahuje jeho MAC adresu.          
-Dalšími zprávami jsou tedy *Router Solicitation*, *Router Advertisement*. Ty se využívají k nalezení směrovače na síti. Najdou své využití v DHCPv6
+Také se zde objevuje multicast MAC, o kterém si také povídat nebudeme. Druhý počítač tedy paket přijme a vyšle *Neighbor advertisement*. Ten vyšle přímo zařízení, ze kterého mu přišlo NS, a obsahuje hledanou MAC adresu.          
+Dalšími zprávami jsou tedy *Router Solicitation* a *Router Advertisement*. Ty se využívají k nalezení směrovače na síti. Najdou své využití v DHCPv6. RS vyšle počítač, jakmile je připojen k síti a RA vysílá směrovač pravidelně. RS využívá multicast adresu *ff02::2*, tedy all routers. RA naopak využívá multicast adresu *ff02::1*, tedy all nodes.
 
 ![IP Fragmentation](ip_fragmentation.jpeg)
 
@@ -75,7 +75,5 @@ Jeremy's IT Lab - IPv6 Part 1 - https://www.youtube.com/watch?v=ZNuXyOXae5U
 Jeremy's IT Lab - IPv6 Part 2 - https://www.youtube.com/watch?v=BrTMMOXFhDU          
 Jeremy's IT Lab - IPv6 Part 3 - https://www.youtube.com/watch?v=rwkHfsWQwy8         
 IPv6 Reference Card - https://www.ripe.net/media/documents/ipv6_reference_card.pdf      
-Cisco - Anycast - https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/ipv6_basic/configuration/xe-3s/ip6b-xe-3s-book/ip6-anycast-add-xe.pdf               
-Chris Greer - How IP Fragmentation Works - https://www.youtube.com/watch?v=vdajb14Lcu0
 Cisco - Anycast - https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/ipv6_basic/configuration/xe-3s/ip6b-xe-3s-book/ip6-anycast-add-xe.pdf               
 Chris Greer - How IP Fragmentation Works - https://www.youtube.com/watch?v=vdajb14Lcu0
