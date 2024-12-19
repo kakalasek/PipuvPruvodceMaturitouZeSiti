@@ -77,3 +77,5 @@ Jeremy's IT Lab - IPv6 Part 3 - https://www.youtube.com/watch?v=rwkHfsWQwy8
 IPv6 Reference Card - https://www.ripe.net/media/documents/ipv6_reference_card.pdf      
 Cisco - Anycast - https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/ipv6_basic/configuration/xe-3s/ip6b-xe-3s-book/ip6-anycast-add-xe.pdf               
 Chris Greer - How IP Fragmentation Works - https://www.youtube.com/watch?v=vdajb14Lcu0
+Cisco - Anycast - https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/ipv6_basic/configuration/xe-3s/ip6b-xe-3s-book/ip6-anycast-add-xe.pdf               
+Chris Greer - How IP Fragmentation Works - https://www.youtube.com/watch?v=vdajb14Lcu0
