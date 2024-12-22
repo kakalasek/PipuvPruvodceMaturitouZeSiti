@@ -32,8 +32,9 @@ Jedním z nich je tzv. **DHCP Spoofing**. Probíhá následovně: útočník sv�
 ![DHCP Spoofing](dhcp_spoofing.png)
 
 Druhým běžným útokem je **DHCP Starvation**. Útočník si pomocí fejkování MAC adres vypůjčí všechny dostupné IP adresy. Žádný další počítač tedy nemůže dostat IP adresu.        
-Odpovědí obě hrozby je tzv. **DHCP Snooping**. Lze ho nastavit na switchy a poskytuje takový základní firewall na určitých portech. Porty se dají označit jako trusted a untrusted. Untrusted porty bychom měli zpravidla nastavovat ty, které jsou připojené k zařízení, směrem k routeru.         
-DHCP Snooping využívá tzv. DHCP Snooping Binding table. Tato tabulka vždy obsahuje přidělenou IP adresu, MAC adresu, dobu vypůjčení, VLAN, ... Lze tam také nastavit maximální limit zpráv za určitou dobu, takže tím DHCP snooping chrání před vyhladověním.           
+Odpovědí na obě hrozby je tzv. **DHCP Snooping**. Lze ho nastavit na switchy a poskytuje takový základní firewall na určitých portech. Porty se dají označit jako trusted a untrusted. Untrusted porty bychom měli zpravidla nastavovat ty, které jsou připojené k zařízení, směrem k routeru.         
+DHCP Snooping využívá tzv. DHCP Snooping Binding table. Tato tabulka vždy obsahuje přidělenou IP adresu, MAC adresu, dobu vypůjčení, VLAN, ... Přijde-li na takový untrusted port paket, který má jinou IP adresy, než která mu byla přidělena, okamžitě se zablokuje. Stejné chování nastane, přijde-li na untrusted port DHCP Offer, který tam nemá co dělat.     
+Na untrusted portech lze také nastavit maximální limit DHCP zpráv za určitou dobu, takže tím DHCP snooping chrání před vyhladověním.           
 O moc více toho vědět nepotřebujete.
 
 ![DHCP Snooping](dhcp_snooping.jpg)
