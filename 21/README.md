@@ -28,7 +28,11 @@ EtherChannel jde nastavit i staticky, zkrátka řeknete, že set portů bude Eth
 ![STP](stp.jpg)
 
 Zbývá nám již je STP (Spanning Tree Protocol). Využívá se k zablokování smyček na druhé síťové vrstvě. Rámce totiž nemají žádný mechanismus, který by jim dovolil zmizet ze sítě v případě, že se někde zacyklí. Zacyklí-li se paket, TTL nebo HL způsobí, že dříve nebo později bude zahozen. Rámec ne, ten může lítat na síti donekonečna. Pokud tedy vznikne smyčka, je zacyklen a zbytečně zahlcuje síť.        
-
+Budu trochu lenoch a nechám vás si nastudovat konkrétní detaily funkce sami. Představíme si tu ale základní principy, jako u minulýh protokolů.             
+STP se již dlouho nevyužívá, Cisco defaultně využívá  **Rapid PVST+**. PVST je Per-VLAN Spanning Tree. Existuje ještě **MSTP**, což je moderní otevřený standart.           
+Jak STP funguje? Nejdříve je potřeba zvolit tzv. Root bridge. Každý jiný switch musí mít cestu právě k tomuto switchy. Typicky toto bude switch s nejnižší prioritou, popř. s nejnižší MAC adresou.             
+Každý port může být buď designated, root, nebo blocked. Root porty jsou vždy naproti designated. Spanning tree zkrátka pomocí posílání BPDU zablokuje v síti smyčky a dokáže reagovat i na změny topologie.             
+Na portech, kam jsou připojeny počítače, by měl být spanning tree vypnut kvůli možným útokům. Toho dociluje BPDU Guard, který port vypne, přijde-li na něj BPDU.
 
 Materiály
 ---
