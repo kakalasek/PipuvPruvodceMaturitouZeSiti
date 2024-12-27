@@ -18,7 +18,7 @@ Zde nastává taková zajímavá věc. MTA nemusí email hned poslat na MTA př�
 Jakmile přijde email na MTA příjemce, MTA ho předá MDA (Mail Delivery Agent). To je zpravidla nějaký IMAP nebo POP3 server.         
 Celá tato komunikace samozřejmě probíhá pomocí protokolu SMTP.          
 
-**obrázek SMTP**
+![SMTP](smtp.webp)
 
 Podíváme se teď na protokol SMTP více do hloubky. SMTP zpráva se skládá ze tří částí. Envelope, hlavička a data.        
 Envelope jako uživatelé nevidíme, nicméně servery ho využívají k routování. Je zde uložena adresa odesilatele a příjemce. Může se dokonce lišit od té v hlavičce, toho využívají například spammeři.            
@@ -38,7 +38,7 @@ Jednotlivé servery mezi sebou tedy vždy vytváří spojení pomocí SMTP.
 Další věc, kterou si objasníme, je vzhled emailové adresy a MX záznamy. Mějmě emailovou adresu *cocksucker@killme.please*. Tato emailová adresa má 2 části. První z nich je *cocksucker*. To je lokální část adresy. Říká emailovému serveru, kde má mail nakonec skončit. Tedy v čí schránce. Druhá část *killme.please* je doména, ve které je email registrován. Lze ji přeložit do IP adresy a právě na ni routují MTA své emaily. Obě části jsou pak oddělený symbolem *@*.                
 MX záznam, je typ záznamu, který můžeme najít na DNS serveru. Obsahuje FQDN mailového serveru pro nějakou doménu. Typicky se na DNS serveru nachází pro jednu doménu dva mailové servery. Jeden má vyšší prioritu a druhý nižší. Pokud při pokusy o zaslání emailu na server s vyšší prioritou dojde chybová hláška, že email nedošel, zkusí MTA odesilatele ještě mailový server s nižší prioritou. Na obrázku níže můžete vidět, jak takový MX záznam vypadá.     
 
-**Obrázek MX záznam**
+![MX Record](mx.png)
 
 Posledním tématem bude IMAP a POP3. SMTP dovede doručit email na cílové MTA, nicméně už nedovede email stáhnout. Od toho máme MDA a dva zmíněné protokoly.          
 Je mezi nimi jeden fundamentální rozdíl. POP3 stáhne email se serveru do počítače a smaže ho ze serveru.        
