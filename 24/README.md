@@ -4,7 +4,7 @@ IMAP a SMTP - odesílání a přijímání e-mailů, synchronizace poštovních 
 Přehled
 ---
 
-Totální trash otázka pro výplň, která s vámi třeba dovede totálně vyjebat. Rozhodně nezávidím, pokud si ji vytáhnete.
+Totální trash otázka pro výplň, která s vámi třeba dovede totálně vyjebat. Rozhodně nezávidím, pokud si ji vytáhnete. Po zpracování otázky mám trochu jiný názor .. otázka je to relativně jednoduchá, nicméně emailový server bych konfigurovat fakt nechtěl.
 
 Povídání
 ---
