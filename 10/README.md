@@ -35,7 +35,7 @@ VTP také využívá tzv. **VTP domény**. Defaultně není žádný switch v ž
 **Transparentní** switch může svou tabulku VLANů měnit dle libosti a nikam ji nevysílá, ani nepřijímá advertisementy od serveru, posílá je však dál.        
 Proč by měl tento protokol jakkoliv škodit? Nu, mějme situaci, kdy do sítě zapojíme starší switch a zapomeneme, že revizní číslo v jeho VLAN tabulce je vyšší, než číslo našeho VTP serveru. Každý switch defaultně předpokládá, že je VTP server. Tento switch tedy rozešle advertisement se svou tabulkou a všechny klienti i servery v naší VTP doméně se podle něj přizpůsobí .. no a tím jsme si efektivně rozesrali všechny VLANy na síti, protože kdo ví, co za VLANy bylo na tom starším switchy.
 
-![VTP](vtp.webp)
+![VTP](vtp.png)
 
 Uděláme si takové rychlé okénko do VLAN bezpečnosti. Sice to pravděpodobně nebudete pro maturitu potřebovat, můžete se tím trochu zachránit v případě, že by vám došly slova, nebo jste něco zapomněli. První zásadní věc, která se dělá vždy a všude. **Vypnout DTP na všech portech, které jsou určeny koncovým zařízením**. Nebo klidně rovnou úplně na všech a trunky nastavit staticky. Proč? Dnes je pro počítač možné, aby se prezentoval jako switch a vytvořil s opravdovým switchem trunk port. Útočník, který by této slabiny využil, by byl schopný posílat data do všech VLANů a vidět data ze všech VLANů. Tomuto útoku se říká **Switch Spoofing**.     
 Další důležitou věcí je **dát všechny nepoužívané porty do nevyužívaného VLANu a natvrdo vypnout**.     
