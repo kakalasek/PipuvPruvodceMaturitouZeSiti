@@ -59,7 +59,31 @@ Protože 802.11a vznikl v US, neměl žádné zvláštní ekologické požadavky
 802.11g je snaha zrychlit 802.11b pomocí novějších protokolů. Je sice zpětně kompatibilní s DSSS, ale nově využívá i OFDM nebo PBCC.                    
 Dalším standartem, který si zmíníme, je 802.11n. Ten přináší možnost využít obě pásma. Také využívá metodu MIMO (Multiple Input Multiple Output). To znamená využití několika antén současně.               
 Existuje ještě 802.11ac. Tento stadart přináší teoretické zrychlení až na 1Gbit/s. Využívá širší frekvenční kanály (80MHz minimálně). Zná i techniku tzv. beamformingu.                 
+Konečně se podíváme na bezdrátové sítě trochu prakticky. Co to vlastně znamená to Wi-fi? Je to nálepka, kterou může dostat zařízení, dodrží-li standarty IEEE 802.11. Tuto nálepku uděluje Wi-fi alliance. Vždy certifikuje různé standarty (802.11a, 802.11n, ...).            
+WLAN architektura stojí na několika částech. Prvním jsou tzv. koncové stanice (naše zařízení).                  
+Druhým je AP (Access Point). Tím je zařízení, které zprostřédkovává bezdrátovou síť. Jedna síť může mít i více AP. Každé AP má svou MAC adresu.                     
+BSS (Basic Service Set) je skupina zařízení, která je připojena k AP. MAC adresa AP je BSSID a unikátně identifikuje BSS. BSS bychom nejlépe přirovnali ke kolizní doméně z klasických Ethernet sítí. Proč kolizní? Protože v bezdrátové komunikaci, jen jedno zařízení může mluvit najednou. Mohou tedy teoreticky nastat kolize. CSMA/CA nám ale pomáhá se jim vyhnout.               
+ESS (Extended Service Set) je vlastně celá naše síť. AP totiž může být propojen k větší síti. Náš domácí router je zároveň AP a zároveň strůjcem naší sítě. To ale nemusí být vždy pravda. ESSID unikátně identifikuje naši sít. Je to název, který vidíme, chceme-li se k nové síti připojit.             
+Distribuční systém je to, co zajišťuje komunikaci mezi BSS. Typicky je to nějaká ethernetová síť. Tedy kabely mezi různými AP.                  
 
+![DS BSS ESS](ds_bss_ess.png)
+
+Na obrázku výše můžeme vidět vše popsané. USB jsou koncové stanice. Modrá zařízení jsou AP. Bublinky jsou BSS. Černý kabel je DS. A celé to tvoří ESS.                  
+AP může fungovat ve dvou módech. Mód infrastruktury je klasický. Zkrátka je připojen někam do DS a pak do sítě. Ad-hoc mód znamená, že je AP úplně izolované od světa. Můžeme mluvit pouze s ostatními zařízeními. Toho lze využít např. při dočasnému připojeni k tiskárně.                
+Důležité je si uvědomit, že stanice spolu nikdy nekomunikují přímo, vždy přes AP.           
+Každá stanice musí být asociována ke konkrétnímu AP sítě. Existují pro to speciální zprávy. Před asociací také zpravidla probíhá autentikace, tu si popíšeme záhy. Existuje ještě de-asociace a re-asociace. Re-asociace probíhá, chceme-li změnit AP ve stejné síti. Třeba protože má ted lepší signál.                
+Autentikace je v původním standartu popsána dvěma způsoby. První je tzv. Open System Authentication. Tedy že systém vyhový každé žádosti. Druhý je Shared Key Authentication. Ten je v původním standartu implementovaný pomocí algoritmu WEP (Wireless Equivalent Privacy). Ten je dnes již zastaralý a neměl by se nikdy využívat.                
+IEEE 802.11 frame nevypadá stejně jako ten Ethernetový. Může obsahovat až 4 MAC adresy. První je MAC adresa příjemce, pak MAC adresa AP, pak MAC adresa odesilatele. Někdy je ale ještě potřeba MAC adresa AP, ke kterému je asociován příjemce. Frame obsahuje také informace, zda komunikuje AP k zařízení, nebo naopak.                  
+Když se chceme k AP připojit, potřebujeme ESSID (Resp. BSSID). To můžeme získat zpravidla dvěma způsoby. Jedním z nich je, že AP periodicky vysílá beacon rámce. Ty nám poskytnou všechny důležité informace k připojení. Druhý je tzv. Probe request. Ten zašleme mi a od AP nám může přijít Probe response, opět se všemi potřebnými informacemi. AP totiž může mít broadcast svého ESSID vypnutý. V zájmu bezpečnosti např.                  
+Protože WEP je k hovnu, bylo potřeba vymyslet něco lepšího. Z jakési nedočkavosti byl vydán WPA. Byl lepší než WEP, ale staré využíval k šifrování TKIP (Temporal Key Integrity Protocol). Ten generuje dočasné šifrovací klíče a rychle je střídá. Ukázal se jako slabý a zranitelný.              
+Lepší šifrování je tedy WPA2, které již TKIP nevyužívá, nahradilo ho CCMP. To je založené na AES (Advanced Encryption Standart).                        
+WPA nabízí 2 možnosti autentizace: Enterprise a Personal (PSK). Enterprise dovoluje autentizovat konkrétní uživatele. Personal využívá nějaký sdílený klíč, hodí se pro domácí použití.                 
+WPA se bohužel stále vyskytuje jako možnost na některých modemech. Nicméně bychom měli využívat alespoň WPA2, to je při dobrém hesle docela bezpečné. Nejnovější standart je WPA3.                  
+Existuje také standart IEEE 802.1x. Ten umožnuje autentizaci zařízení do sítí LAN a WLAN. Neříká, jaké údaje mají sloužit k autentizaci ani jak mají být posuzovány. Udává v podstatě pouze terminologii. Suplikant je koncové zařízení. Autentizátor je AP a Autentizační server je .. well, název by to měl říkat jasně.                  
+EAP (Extensible Authentication Protocol) je protocol, který řídí právě takovou komunikaci, tedy mezi Suplikantem, Autentizátorem a Autentizačním serverem. Udává nějaké základní zprávy (EAP Request/Identity, EAP Response, EAP Success, ...).                 
+Pro konkrétní využití ale EAP potřebuje trochu vylepšit. Třeba EAPOL (EAP over LAN) nebo EAPoW (EAP over Wireless). První vkládá zprávy EAP do linkových rámců. Druhý je pro vkládání do 802.11 rámců.              
+RADIUS (Remote Authentication Dial In User Service) je typické řešení pro autentizační server. Má vlastní protokol pro komunikaci s klienty. EAP se vkládá to těchto zpráv.                
+EAP lze také různě rozšířit a zašifrovat, např. EAP-TLS, PEAP, CHAP, ...
 
 Materiály
 ---
