@@ -1,41 +1,30 @@
 Bezdrátové sítě - šíření elektromagnetických vln, antény, druhy modulací, zabezpečení, autentifikace
 ===
 
-Přehled
----
-
-Neskutečně rozsáhlá otázka, bezdrátové sitě jsou velké téma. Nicméně z mého pohledu rozhodně ne úplně triviální, nepřeju vám ji. Ale pokud ji náhodou dostanete, určitě to nějak zvládnete.
-
 Povídání
 ---
 
-Ještě předtím, než se podíváme, jak vypadájí elektromagnetické vlny a jejich modulace, podíváme se na nějaké specifikace bezdrtátových sítí. V první řadě, narozdíl od drátových sítí, AP (Access Point) funguje spíše jako hub než switch. Všechna zařízení v okolí mohou odchytit jakýkoliv vyslaný signál. To si můžete ostatně sami vyzkoušet, pokud si přepnete síťovou kartu do monitor módu. Šifrování zde je tedy velmi důležité.           
-V jednu chvíli může také mluvit pouze jedno zařízení, aby nedošlo k interferenci a ztrátě dat. Toho se dociluje pomocí CSMA/CA (Carrier Sense Multiple Access with Collision Avoidance). Jednoduše řečeno, zařízení připojené k síti počká, než ostatní dokončí vysílání a pak začne vysílat samo. Kontroluje tedy kanál, na kterém vysílá, a jakmile zjistí, že je volný, začné vysílat.               
-Dalšími faktory, které v bezdrátových sítích existují, může být rozdíl mezi kanály v různých zemích. Musíme si také dávat pozor na následující problémy, které by mohli negativně postihnout kvalitu naší bezdrátové sítě.          
-Absorbce. Např. stěna může část signálu absorbovat, bude pak na druhé straně slabší.            
-Reflekce. Elektromagnetické vlny se mohou odrážet např. od kovových povrchů. Třeba ve výtahu tak můžeme mít horší signál.           
-Refrakce. Nastává, pokud signál narazí na materiál, kde putuje jinou rychlostí, třeba na vodu. Může pak změnit svůj směr.           
-Difrakce. Tu můžeme pozorovat, pokud jsme dali náš počítač do bodu, který vlny pouze obíhají, nicméně za něj se nedostanou.         
-Tříštění. Signál se "roztříští" do různých směrů.       
-Pokud tedy umisťujeme AP, musíme vzít tato omezení v potaz.         
-Posledním problémem může být rušení od jiných zařízení, které využívají stejný kanál.           
-Dobrá, když jsme si teď pověděli, jaké probémy musíme i Wi-Fi řešit, vysvětlíme si elektromagnetické vlny obecně. Vznikají s pomocí střídavého proudu, který je přiveden na anténu. Mohou mít různé vlastnosti, my budeme pozorovat třeba amplitudu a frekvenci. Tyto pojmy bychom již měli znát z matematiky, nebudu je znovu vysvětlovat.             
-Radiové frekvence se pohybují od 30Hz do 300GHz. Wi-Fi využívá především dvě pásma z tohoto rozsahu. První se nazývá pásmo 2.4GHz a je od 2.4GHz do 2.4835GHz. Druhé se nazývá 5G band, ten využívá frekvence od 5.15GHz do 5.825GHz.           
-2.4GHz pásmo může poskytovat větší dosah a vyšší penetraci zkrz různé povrchy. Nicméně jeho kanály bývají dost obsazené a mohou být pomalé.         
-5GHz využívá vyšší frekvence, tím pádem má menší dosah a hůře se mu dostává přes překážky. Nicméně frekvence v tomto pásmu jsou klidnější a 5G poskytuje obecně rychlejší připojení.            
-Wi-Fi 6, což je dnes oblíbený standard, zvětšila rozsah 5G i do rozsahu 6G.     
-Zmínil jsem pojem *kanál*. Kanály jsou jakési rozdělení pásem. Překrývají se, v evropě jich máme 13. Kvůli překrývání se doporučuje zvolit správné kanály. Třeba 1, 6, 11.              
-Existuje nespočet wifi standartů, novější jsou známe i pod názvem Wi-Fi "X" (třeba 6). Nemusíte je znát.            
-Bezdrátová zařízení můžeme rozdělit to tzv. service setů. Všechna zařízení v service setu sdílí stejné SSID (Service Set Identifier). To je zkrátka a dobře jméno, které identifikuje service set. Nemusí být unikátní, ale hodí se to.             
-Dobrá, teď bychom se mohli zabývat fungováním těchto service setů, nicméně otázka to nezmiňuje, takže se tím nebudeme stresovat.            
-Trochu poskočíme a podíváme se rovnou na bezpečnost v bezdrátových sítích.          
-Začneme autetikací. Už jsme si řekli, že autentikace je ověření identity uživatele. Lze ji provést třemi základními metodami. Pomocí hesla, pomocí uživatelského jména a hesla nebo pomocí certifikátu.         
-Podíváme se na pár metod autentikace v bezdrátových sítích. První z nich je otevřená autentikace. Zařízení zašle request a AP ho přijme, badebum badabem. Sama o sobě není zabezpečená, ale lze ji zkombinovat s jinými metodami.           
-Další možností je WEP (Wired Equivalent Privacy). Poskytuje také šifrování. Pro nás stačí vědět, že bychom ho neměli nikdy používat .. NIKDY!           
-Existuje také celá plejáda EAP protokolů, kterými se, snad, zabývat nemusíme.           
-Bezpečný standard, který bychom měli využívat v domácím prostředí, je WPA2 s AES, nebo WPA3.      
-Máme také různé typy antén. Mohou být do všech směrů, parabolické, více směrné. Různé antény mají různé vlastnosti a dají se využít různě.              
-Posledním tématem je modulace. ...............................
+Začneme úplně od začátku, od fyziky. Nebo ....                   
+Dobře, když jsme si teď pověděli nějaký fyzikální základ, můžeme pokračovat. Začneme úplně od začátku. V dávných časech si nějaký pán uvědomil, že když tento zdroj střídavého proudu přivedený na nějakou anténu vypíná a zapíná, generuje nějaké signály. Tyto signály ale neměly žádný specifický tvar, druhá strana je mohla zkrátka buď zachytit, nebo ne. Bylo přes ně tedy možné komunikovat jen pomocí nějakého speciálního jazyka, typicky pomocí morseovky. Tento systém se docela uchytil, bylo možné s ním komunikovat na dlouhé vzdálenosti, byl jednoduchý. Nicméně měl nespočet nevýhod. Jednou z nich byla rozhodně neschopnost vypořádat se s nějakým rušením, jiným signálem.                     
+Než se podíváme dál, vysvětlíme si, spíš polopaticky než vědecky, co se může signálu stát, když tak putuje vzduchem.            
+**Absorbce**. Můžeme mít v cestě třeba nějakou stěnu, ta dovede signál absorbovat, ztlumit. To je významné především u signálů vyšších frekvencí. Tyto signály tak hůře penetrují skrze zdi a nehodí se na dálkové vysílání. Absorbovat může i např. kovový povrch. Absorbovaná energie se zpravidla mění v teplo.              
+**Reflekce**. Třeba kovový povrch ale dovede i signál reflektovat, tedy odrazit.                
+**Refrakce**. Ta nastává, když se vlny dostanou do jiného materiálu než vzduchu. Světlo putuje v různých materiálech různou rychlostí. Signál tak může např. změnit směr. Podobně jako se může i viditelné světlo různě lámat.          
+**Difrakce**. Je specifická vlastnost vln. Vlna za úzkým otvorem opět propaguje do všech stran, ne pouze směrem otvoru. Obrázek popíše nejlépe.             
+
+![Difraction](difraction.png)
+
+**Tříštění**. Mluví samo za sebe. V některých případech se nám signál může roztříštit.                  
+Dobře, máme možnost, jak komunikovat na dálku. Nicméně morseovka je docela lame, ne? To si řekl i někdo na začátku 20. stol. A opravdu, dovedl přenést analogový signál. Jak toho docílil? Využil tzv. amplitudovou modulaci. Co to je modulace? Modulace, alespoň jak jsem to já pochopil, je zakódování informace do nosné vlny. Co je nosná vlna? To je vlna pevně dané frekvence. Vysíláč do ni zakóduje informaci a přijímač zná frekvenci této vlny a dovede z výsledné vlny informaci dekódovat.                 
+
+![AM](am.jpg)
+
+Provádíme-li amplitudovou modulaci, výsledný signál získáme složením nosné vlny a našeho signálu. Nosná vlna změní amplitudu podle průběhu našeho signálu. Tato modulace se stále v některých aplikacích využívá. Nicméně většině světa vládnou efektivnější modulace.          
+FM funguje podobně jako AM, nicméně místo amplitudy mění frekvenci podle našeho signálu.        
+
+![AM and FM](am_fm.gif)
+
+Existuje ještě PM modulace, neboli fázová modulace. Tu si nebudeme více vysvětlovat, nicméně je základem moderních typů modulací jako QPSK, 8-PSK a QAM.                    
 
 Materiály
 ---
@@ -43,4 +32,5 @@ Materiály
 Jeremy's IT Lab - Wireless Fundamentals - https://invidious.jing.rocks/watch?v=zuYiktLqNYQ          
 Jeremy's IT Lab - Wireless Architectures - https://invidious.jing.rocks/watch?v=uX1h0F6wpBY             
 Jeremy's IT Lab - Wireless Security - https://invidious.jing.rocks/watch?v=wHXKo9So5y8
-Jeremy's IT Lab - Wireless Configuration - https://invidious.jing.rocks/watch?v=r9o6GFI87go
+Jeremy's IT Lab - Wireless Configuration - https://invidious.jing.rocks/watch?v=r9o6GFI87go                 
+Computer Science Lessons - Wireless Communication - https://www.youtube.com/watch?v=OLsbONSQFUI&list=PLTd6ceoshprdYxPhsPcR6yWLMeqsU3t9M         
